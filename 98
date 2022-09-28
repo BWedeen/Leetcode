@@ -1,0 +1,28 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+
+var traversalHelper = function(root, headVal) {
+    console.log(headVal);
+    
+    if(root.left != null) {
+        traversalHelper(root.left, root.val);
+    } 
+    
+    if(root.right != null) {
+        traversalHelper(root.right, root.val);
+    } 
+};
+
+var isValidBST = function(root) {
+    traversalHelper(root, root.val);
+};
