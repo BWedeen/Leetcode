@@ -1,5 +1,6 @@
 /**
- * #89 Given the root of a binary tree, determine if it is a valid binary search tree (BST).
+ * Given the root of a binary tree, determine if it is a valid binary search tree (BST).
+ *
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
  *     this.val = (val===undefined ? 0 : val)
@@ -13,7 +14,6 @@
  */
 
 var isValidBST = function(root, min = Number.MIN_SAFE_INTEGER, max = Number.MAX_SAFE_INTEGER) {
-    
     if(!root) {
         return true;
     }
