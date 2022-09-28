@@ -11,18 +11,15 @@
  * @return {boolean}
  */
 
-var traversalHelper = function(root, headVal) {
-    console.log(headVal);
+var isValidBST = function(root, min = Number.MIN_SAFE_INTEGER, max = Number.MAX_SAFE_INTEGER) {
     
-    if(root.left != null) {
-        traversalHelper(root.left, root.val);
-    } 
+    if(!root) {
+        return true;
+    }
     
-    if(root.right != null) {
-        traversalHelper(root.right, root.val);
-    } 
-};
-
-var isValidBST = function(root) {
-    traversalHelper(root, root.val);
+    if(root.val <= min || root.val >= max) {
+        return false;
+    }
+    
+    return (isValidBST(root.left, min, root.val) && isValidBST(root.right, root.val, max));
 };
