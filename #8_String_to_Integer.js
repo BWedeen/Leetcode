@@ -18,11 +18,6 @@ Do not ignore any characters other than the leading whitespace or the rest of th
  * @return {number}
  */
 
-/**
- * @param {string} s
- * @return {number}
- */
-
 var myAtoi = function(s) {
     let sign = 1;
     let base = 0;
