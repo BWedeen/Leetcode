@@ -18,26 +18,38 @@ Do not ignore any characters other than the leading whitespace or the rest of th
  * @return {number}
  */
 
+/**
+ * @param {string} s
+ * @return {number}
+ */
+
 var myAtoi = function(s) {
     let sign = 1;
     let base = 0;
+    let min = 2**31 * -1;
+    let max = 2**31 - 1;
     let i = 0;
 
-    while (s.charAt(i) == ' ') { i++; }
+    while (s.charAt(i) == ' ') { 
+        i++; 
+    }
+
     if (s.charAt(i) == '-' || s.charAt(i) == '+') {
         sign = 1 - 2 * (s.charAt(i++) == '-'); 
     }
+
     while (s.charAt(i) >= '0' && s.charAt(i) <= '9') {
         base  = 10 * base + (s.charAt(i++) - '0');
     }
 
     let ans = base * sign;
-    if(ans > 2**31 - 1) {
-        return 2**31 - 1;
+
+    if(ans > max) {
+        return max;
     }
-    if(ans < 2**31 * -1) {
-        return 2**31 * -1;
+    if(ans < min) {
+        return min;
     }
-    
-    return base * sign;
+
+    return ans;
 }
